@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	
+<div ng-app="myApp" ng-controller="myctrl">
+
+
+<p>{{myheader}}</p>
+
+</div>
+
+  <script>
+	var app = angular.module('myApp', []);
+		app.controller('myctrl', function($scope,$timeout) {
+
+			$scope.myheader="hello my name is Ada";
+			$timeout(function(){
+				
+			$scope.myheader="Ada is fed";
+			},2000);
+
+			
+		
+		});
+
+   </script>
+</body>
+</html>

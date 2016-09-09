@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	
+<div ng-app="myApp" ng-controller="myctrl">
+
+
+<p>{{interval}}</p>
+
+<p>{{interval1}}</p>
+
+</div>
+
+<!-- 
+注意里面是locale,不是locate -->
+  <script>
+	var app = angular.module('myApp', []);
+		app.controller('myctrl', function($scope,$interval) {
+
+			    $scope.interval=new Date().toLocaleTimeString();
+
+				$scope.interval1=new Date().toString();
+			$interval(function(){
+				 $scope.interval=new Date().toLocaleTimeString();
+			     $scope.interval1=new Date().toString();
+			},2000);
+
+			
+		
+		});
+
+   </script>
+</body>
+</html>

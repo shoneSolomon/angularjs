@@ -1,0 +1,24 @@
+<div ng-app="myApp">
+在过滤器中使用服务:
+
+<h1>{{255 | myFormat}}</h1>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.service('hexafy', function() {
+	this.myFunc = function (x) {
+        return x.toString(16);
+    }
+});
+app.filter('myFormat',['hexafy', function(hexafy) {
+    return function(x) {
+        return hexafy.myFunc(x);
+    };
+}]);
+
+</script>
+
+</body>
+</html>

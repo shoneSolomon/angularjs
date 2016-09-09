@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+  <p>{{x1}}</p>
+  <p>是不是数字：{{x2}}</p>
+  <p>是不是字符串：{{x3}}</p>
+  <p>转化为小写：{{x4}}</p>
+  <p>转换为大写：{{x5}}</p>
+	
+	</div>
+
+<script>
+var app = angular.module('myApp', []);
+
+app.controller('myCtrl', function($scope) {
+    $scope.x1="Alex";
+    $scope.x2=angular.isNumber($scope.x1);
+    $scope.x3=angular.isString($scope.x1);
+    $scope.x4=angular.lowercase($scope.x1);
+    $scope.x5=angular.uppercase($scope.x1);
+  
+
+});
+</script>
+
+</body>
+</html>
+
+
+
+

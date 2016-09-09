@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	
+<div ng-app="myApp" ng-controller="myctrl">
+
+<table>
+  <tr ng-repeat="y for (x,y) in names">
+    <td>{{ y.Name }}</td>
+    <td>{{ y.City }}</td>
+    <td>{{ y.Country }}</td>
+  </tr>
+</table>
+
+</div>
+
+  <script>
+	var app = angular.module('myApp', []);
+	app.controller('myctrl', function($scope,$http) {
+
+		$http.get("test.jsp").success(function(response){
+			$scope.names=response.records;
+		});
+		
+    
+	});
+
+   </script>
+</body>
+</html>
